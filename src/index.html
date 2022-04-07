@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('html/head.html', { "title":"My stopwatch" })
+  <body>
+    <div class="wrapper">
+      @@include('html/header.html', {})
+      <main class="content">
+        <section class="timer">
+          <div class="timer__container container">
+            <h1 class="timer__title">stop<span>w</span>atch</h1>
+            <p class="timer__time">00 : 00 : 00</p>
+            <div class="timer__btns">
+              <button id="start">start</button>
+              <button id="stop">pause</button>
+              <button type="reset" id="reset">reset</button>
+            </div>
+          </div>
+        </section>
+      </main>
+      @@include('html/footer.html', {})
+    </div>
+    <script src="js/app.min.js"></script>
+  </body>
+</html>

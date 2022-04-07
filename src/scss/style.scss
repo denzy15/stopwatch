@@ -1,0 +1,216 @@
+@use "sass:math";
+
+// Imports========================================================================================================================
+@import "_null.scss";
+
+// Functions ===================================================================================================================
+
+//%
+@function prc($pxOne, $pxTwo) {
+  $result: math.div($pxOne, $pxTwo) * 100%;
+  @return $result;
+}
+//REM
+@function rem($px) {
+  $result: math.div($px, 16) + rem;
+  @return $result;
+}
+//EM
+@function em($px) {
+  $result: math.div($px, 16) + em;
+  @return $result;
+}
+
+// Fonts connection ===================================================================================================================
+//&display=swap - при подключении ч/з плагин
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:]regular,500,700&display=swap);
+@import url(https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:regular);
+
+// Default Font ===================================================================================================================
+$fontFamily: "Josefin Sans";
+$fontSize: rem(16);
+
+// Widths ===================================================================================================================
+$maxContWidth: 1440 + 30;
+
+// Colors ===================================================================================================================
+
+//$:  ;
+//$:  ;
+//$:  ;
+
+// Container ===================================================================================================================
+
+.container {
+  max-width: $maxContWidth;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+// Styles ===================================================================================================================
+
+body {
+  font-family: $fontFamily;
+  font-size: $fontSize;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(145deg, rgb(0, 255, 197), rgb(88, 82, 182) 99%);
+}
+
+.content {
+  flex: 1 1 auto;
+}
+
+// Timer ===================================================================================================================
+
+.timer {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+  }
+
+  &__title {
+    font-size: rem(100);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 10;
+    /*span{
+      color: #fff;
+    }*/
+    @media screen and (max-width: 425px) {
+      font-size: rem(70);
+    }
+    /*&::before{
+      content: '';
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background-color: rgb(124, 164, 169);
+      z-index: -1;
+      left: 235px;
+    }*/
+    /*&::after{
+      content: '';
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      background: url('@img/chlen.png') 0 0 / contain no-repeat;
+      z-index: 3;
+      top: 15%;
+      left: 24%;
+          }*/
+  }
+
+  &__time {
+    font-size: rem(80);
+    margin: 20px 0px 30px 0px;
+    //letter-spacing: 10px;
+    text-align: center;
+    font-family: "M PLUS Rounded 1c";
+    text-transform: none;
+    //border: 1px solid #000;
+    @media screen and (max-width: 425px) {
+      font-size: rem(50);
+    }
+  }
+
+  &__btns {
+    display: flex;
+    column-gap: 20px;
+
+    button {
+      text-transform: uppercase;
+      font-size: rem(20);
+      height: 30px;
+      width: 100px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 3px 3px 0;
+      @media screen and (max-width: 425px) {
+        height: 25px;
+        width: 80px;
+      }
+      &[type="reset"] {
+        background-color: inherit;
+      }
+    }
+  }
+}
+
+#start {
+  background-color: rgba(0, 255, 0, 0.671);
+  box-shadow: 3px 3px 0 rgb(0, 127, 0);
+}
+
+#stop {
+  background-color: rgba(255, 0, 0, 0.85);
+  box-shadow: 3px 3px 0 rgb(146, 1, 1);
+}
+
+#reset {
+  background-color: #5753b6;
+  box-shadow: 3px 3px 0 #3a387a;
+}
+// footer ===================================================================================================================
+
+.footer {
+  &__container {
+    border-top: 3px solid #5753b6;
+    animation: border 3s infinite alternate linear;
+  }
+  &__proj {
+    padding: 10px 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: rem(20);
+    @media screen and (max-width: 425px) {
+      font-size: rem(16);
+    }
+  }
+}
+
+@keyframes border {
+  0% {
+    border-top: 3px solid #6200ff;
+  }
+
+  50% {
+    border-top: 3px solid #0400ff;
+  }
+
+  100% {
+    border-top: 3px solid #0375f7;
+  }
+}
+
+// active ===================================================================================================================
+
+.active {
+  //transform: scale(1, 1);
+  animation: btn 0.5s alternate-reverse ease-out;
+
+  //animation: name duration timing-function delay iteration-count direction fill-mode;
+}
+
+@keyframes btn {
+  from {
+  }
+  to {
+    box-shadow: 0 0 0;
+    transform: translate(3px, 3px);
+  }
+}
