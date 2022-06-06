@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .container {
-  max-width: 1470;
+  max-width: 1470px;
   padding: 0 15px;
   margin: 0 auto;
 }
@@ -90,19 +90,36 @@ body {
   min-height: 100%;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(145deg, #00ffc5, #5852b6 99%);
+  background: #f2e9eb;
 }
 
 .content {
   flex: 1 1 auto;
 }
 
+.header__container {
+  padding: 5px 15px;
+}
+.header__link {
+  color: black;
+  font-size: 1rem;
+  animation: blink 2s alternate-reverse infinite ease;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.05;
+  }
+}
 .timer__container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 90vh;
+  height: 80vh;
 }
 .timer__title {
   font-size: 6.25rem;
@@ -111,28 +128,6 @@ body {
   letter-spacing: 2px;
   position: relative;
   z-index: 10;
-  /*span{
-    color: #fff;
-  }*/
-  /*&::before{
-    content: '';
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    background-color: rgb(124, 164, 169);
-    z-index: -1;
-    left: 235px;
-  }*/
-  /*&::after{
-    content: '';
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    background: url('../img/chlen.png') 0 0 / contain no-repeat;
-    z-index: 3;
-    top: 15%;
-    left: 24%;
-        }*/
 }
 @media screen and (max-width: 425px) {
   .timer__title {
@@ -172,31 +167,29 @@ body {
     width: 80px;
   }
 }
-.timer__btns button[type=reset] {
-  background-color: inherit;
-}
 
 #start {
-  background-color: rgba(0, 255, 0, 0.671);
-  box-shadow: 3px 3px 0 #007f00;
+  background-color: #dd8ea4;
+  box-shadow: 3px 3px 0 #ba778a;
 }
 
 #stop {
-  background-color: rgba(255, 0, 0, 0.85);
-  box-shadow: 3px 3px 0 #920101;
+  background-color: #fedd89;
+  box-shadow: 3px 3px 0 #d7bb74;
 }
 
 #reset {
-  background-color: #5753b6;
-  box-shadow: 3px 3px 0 #3a387a;
+  color: #fff;
+  background-color: #31383f;
+  box-shadow: 3px 3px 0 #282e33;
 }
 
-.footer__container {
-  border-top: 3px solid #5753b6;
-  animation: border 3s infinite alternate linear;
+.footer {
+  border-top: 13px solid #f2e9eb;
+  transition: all 1s ease;
 }
 .footer__proj {
-  padding: 10px 0;
+  padding: 20px 0;
   text-align: center;
   text-transform: uppercase;
   font-size: 1.25rem;
@@ -207,17 +200,6 @@ body {
   }
 }
 
-@keyframes border {
-  0% {
-    border-top: 3px solid #6200ff;
-  }
-  50% {
-    border-top: 3px solid #0400ff;
-  }
-  100% {
-    border-top: 3px solid #0375f7;
-  }
-}
 .active {
   animation: btn 0.5s alternate-reverse ease-out;
 }
